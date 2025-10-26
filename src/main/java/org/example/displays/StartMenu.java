@@ -1,7 +1,5 @@
 package org.example.displays;
 
-import org.example.IngredientLevelsStorage.IngredientLevelsStorage;
-
 import java.util.Scanner;
 
 public class StartMenu {

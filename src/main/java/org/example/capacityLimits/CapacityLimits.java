@@ -1,6 +1,4 @@
-package org.example.CapacityLimits;
-
-import org.example.IngredientLevelsStorage.IngredientLevelsStorage;
+package org.example.capacityLimits;
 
 public class CapacityLimits {
     public final static int MAX_COUNT_WATER = 1000;

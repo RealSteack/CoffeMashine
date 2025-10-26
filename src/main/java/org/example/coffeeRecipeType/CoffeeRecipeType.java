@@ -1,4 +1,4 @@
-package org.example.CoffeeRecipeType;
+package org.example.coffeeRecipeType;
 
 public enum CoffeeRecipeType {
     CAPPUCCINO("""

@@ -1,13 +1,12 @@
 package org.example.displays;
 
-import org.example.IngredientLevelsStorage.IngredientLevelsStorage;
+import org.example.ingredientLevelsStorage.IngredientLevelsStorage;
 
 import java.util.Scanner;
 
 public class DisplayInfo {
-    Scanner scanner = new Scanner(System.in);
-    DisplayPower displayPower = new DisplayPower();
     IngredientLevelsStorage ingredientLevelsStorage = new IngredientLevelsStorage();
+    Scanner scanner = new Scanner(System.in);
     public void displayInfo(){
         System.out.println("""
                 Что вы хотите сделать?
@@ -18,7 +17,9 @@ public class DisplayInfo {
                 5.Выход""");
 
         switch(scanner.nextLine()){
-            case "1" -> ingredientLevelsStorage.countIngredientsCoffeeMachine();
+            case "1"->ingredientLevelsStorage.countIngredientsCoffeeMachine();
+            case "2"->displayInfo();
+            case "4"->displayInfo();
         }
     }
 

@@ -1,6 +1,4 @@
-package org.example.BeverageBrewer;
-
-import java.util.Scanner;
+package org.example.beverageBrewer;
 
 public class BeverageBrewer {
     public void espressoPreparation() {}
