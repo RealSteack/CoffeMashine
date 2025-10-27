@@ -1,39 +1,58 @@
 package org.example.ingredientLevelsStorage;
 
+
 import org.example.displays.DisplayInfo;
 
 import java.util.Scanner;
 
+import static org.example.capacityLimits.CapacityLimits.*;
+
 public class IngredientDispenser {
-    static DisplayInfo displayInfo = new DisplayInfo();
-    
-    public void askUserWhatToAdd(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Что вы хотите наполнить? " +
-                "\n1.Кофе" +
-                "\n2.Воду" +
-                "\n3.Молоко");
-        switch (sc.nextLine()){
-            case "1" -> addCoffeeMount();
-            case "2" -> addWaterMount();
-            case "3" -> addMilkMount();
-            default->{
-                System.out.println("Такой команды увы нет");
-                displayInfo.displayInfo();
-            }
+    Scanner sc = new Scanner(System.in);
+    IngredientLevelsStorage storage = new IngredientLevelsStorage();
+
+    void addCoffeeMount() {
+        System.out.println("Введите кол-во кофе:");
+        int coffeeMountNum = sc.nextInt();
+        if(coffeeMountNum < 0 ) {
+            System.out.println("ВЫ НЕ МОЖЕТЕ ПРИНЯТЬ ОТРИЦАТЕЛЬНОЕ ЧИСЛО!");
+            storage.countIngredientsCoffeeMachine();
+        }
+        if ((IngredientLevelsStorage.getAmountCoffee() + coffeeMountNum) <= MAX_COUNT_COFFEE ) {
+            IngredientLevelsStorage.setAmountCoffee(IngredientLevelsStorage.getAmountCoffee() + coffeeMountNum);
+        }else{
+            System.out.println("Вы превысили лимит!");
+            IngredientLevelsStorage.amountCoffee = MAX_COUNT_COFFEE;
         }
     }
 
-    void addCoffeeMount(){
-        System.out.println("Кофе");
-    }
-
     void addMilkMount(){
-        System.out.println("Молоко");
+        System.out.println("Введите кол-во молока:");
+        int milkMountNum = sc.nextInt();
+        if(milkMountNum < 0 ) {
+            System.out.println("ВЫ НЕ МОЖЕТЕ ПРИНЯТЬ ОТРИЦАТЕЛЬНОЕ ЧИСЛО!");
+            storage.countIngredientsCoffeeMachine();
+        }
+        if((IngredientLevelsStorage.getAmountMilk() + milkMountNum) <= MAX_COUNT_MILK){
+            IngredientLevelsStorage.setAmountMilk(IngredientLevelsStorage.getAmountMilk() + milkMountNum);
+        }else{
+            System.out.println("Вы превысили лимит!");
+            IngredientLevelsStorage.amountMilk = MAX_COUNT_MILK;
+        }
     }
 
     void addWaterMount(){
-        System.out.println("Вода");
+        System.out.println("Введите кол-во воды:");
+        int waterMountNum = sc.nextInt();
+        if(waterMountNum < 0 ) {
+            System.out.println("ВЫ НЕ МОЖЕТЕ ПРИНЯТЬ ОТРИЦАТЕЛЬНОЕ ЧИСЛО!");
+            storage.countIngredientsCoffeeMachine();
+        }
+        if((IngredientLevelsStorage.getAmountWater() + waterMountNum) <= MAX_COUNT_WATER){
+            IngredientLevelsStorage.setAmountWater(IngredientLevelsStorage.getAmountWater() + waterMountNum);
+        }else{
+            System.out.println("Вы превысили лимит!");
+            IngredientLevelsStorage.amountWater = MAX_COUNT_WATER;
+        }
     }
-
 }

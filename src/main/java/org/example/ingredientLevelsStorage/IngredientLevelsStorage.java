@@ -5,9 +5,9 @@ import org.example.displays.DisplayInfo;
 import java.util.Scanner;
 
 public class IngredientLevelsStorage {
-    public static int amountMilk = 1000 ;
-    public static int amountCoffee = 300;
-    public static int amountWater = 1000;
+    public static int amountMilk;
+    public static int amountCoffee;
+    public static int amountWater;
 
     Scanner sc = new Scanner(System.in);
 
@@ -25,10 +25,28 @@ public class IngredientLevelsStorage {
                         "\nКофе --> " + amountCoffee+
                         "\nВоды --> " + amountWater +
                         "\nМолока --> " + amountMilk);
-                displayInfo.displayInfo();
-            case "2":
-                ingredientDispenser.askUserWhatToAdd();
                 countIngredientsCoffeeMachine();
+            case "2":
+                Scanner sc = new Scanner(System.in);
+                System.out.println("""
+                Что вы хотите пополнить?
+                1.Кофе
+                2.Воду
+                3.Молоко""");
+                switch (sc.nextLine()){
+                    case "1":
+                        ingredientDispenser.addCoffeeMount();
+                        countIngredientsCoffeeMachine();
+                    case "2":
+                        ingredientDispenser.addWaterMount();
+                        countIngredientsCoffeeMachine();
+                    case "3":
+                        ingredientDispenser.addMilkMount();
+                        countIngredientsCoffeeMachine();
+                    default:
+                        System.out.println("Такой команды увы нет");
+                        displayInfo.displayInfo();
+                }
             case "3":
                 displayInfo.displayInfo();
             default:
