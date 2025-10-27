@@ -5,14 +5,17 @@ import java.util.Scanner;
 public class StartMenu {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        DisplayInfo displayInfo = new DisplayInfo();
-        DisplayPower displayPower = new DisplayPower();
+        DisplayInfo display = new DisplayInfo();
 
-        displayPower.speakInput();
+        System.out.println("""
+                Вы хотите включить кофе-машину?
+                1.Да
+                2.Нет""");
+
         switch (sc.nextLine()) {
-            case "1" -> displayInfo.displayInfo();
-            case "2" -> displayPower.speakOutput();
-            default -> System.out.println("Ошибка!");
+            case "1" -> display.displayInfo();
+            case "2" -> System.out.println("До свидания!");
+            default  -> System.out.println("Ошибка!");
         }
     }
 }

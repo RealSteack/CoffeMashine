@@ -5,12 +5,14 @@ public enum CoffeeRecipeType {
             Рецепт Капучино:
             Вода: 100мл
             Кофе: 25гр
+            
             """),
     ESPRESSO("""
             Рецепт Эспрессо:
             Вода: 100мл
             Кофе: 25гр
             Молоко: 35мл
+            
             """);
 
     private final String recipe;

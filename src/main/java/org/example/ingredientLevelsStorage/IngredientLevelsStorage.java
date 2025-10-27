@@ -5,55 +5,12 @@ import org.example.displays.DisplayInfo;
 import java.util.Scanner;
 
 public class IngredientLevelsStorage {
-    public static int amountMilk;
-    public static int amountCoffee;
-    public static int amountWater;
 
-    Scanner sc = new Scanner(System.in);
+    public static int amountMilk = 10000;
 
+    public static int amountCoffee = 4000;
 
-    public void countIngredientsCoffeeMachine(){
-        DisplayInfo displayInfo = new DisplayInfo();
-        IngredientDispenser ingredientDispenser = new IngredientDispenser();
-        System.out.println("Что вы хотите сделать?" +
-                "\n1.Посмотреть содержимое" +
-                "\n2.Пополнить содержимое" +
-                "\n3.Выйти");
-        switch (sc.nextLine()){
-            case "1":
-                System.out.println("Сейчас в кофе машине: "+
-                        "\nКофе --> " + amountCoffee+
-                        "\nВоды --> " + amountWater +
-                        "\nМолока --> " + amountMilk);
-                countIngredientsCoffeeMachine();
-            case "2":
-                Scanner sc = new Scanner(System.in);
-                System.out.println("""
-                Что вы хотите пополнить?
-                1.Кофе
-                2.Воду
-                3.Молоко""");
-                switch (sc.nextLine()){
-                    case "1":
-                        ingredientDispenser.addCoffeeMount();
-                        countIngredientsCoffeeMachine();
-                    case "2":
-                        ingredientDispenser.addWaterMount();
-                        countIngredientsCoffeeMachine();
-                    case "3":
-                        ingredientDispenser.addMilkMount();
-                        countIngredientsCoffeeMachine();
-                    default:
-                        System.out.println("Такой команды увы нет");
-                        displayInfo.displayInfo();
-                }
-            case "3":
-                displayInfo.displayInfo();
-            default:
-                System.out.println("Такой функции не существует, отправляю вас в меню.");
-                displayInfo.displayInfo();
-        }
-    }
+    public static int amountWater = 10000;
 
     public static int getAmountMilk() {
         return amountMilk;
@@ -78,5 +35,34 @@ public class IngredientLevelsStorage {
     public static void setAmountCoffee(int amountCoffee) {
         IngredientLevelsStorage.amountCoffee = amountCoffee;
     }
+
+    public void countIngredientsCoffeeMachine(){
+        Scanner sc = new Scanner(System.in);
+        DisplayInfo displayInfo = new DisplayInfo();
+        IngredientDispenser ingredientDispenser = new IngredientDispenser();
+        System.out.println("""
+                Что вы хотите сделать?
+                1.Посмотреть содержимое
+                2.Пополнить кофе-автомат
+                3.Очистить кофе машину
+                4.Выйти""");
+        switch (sc.nextLine()){
+            case "1":
+                System.out.println("Сейчас в кофе-машине:" +
+                        "\nВода --> " + amountWater +
+                        "\nМолоко --> " + amountMilk+
+                        "\nКофе --> " + amountCoffee);
+                countIngredientsCoffeeMachine();
+            case "2":
+                ingredientDispenser.promptIngredientSelection();
+            case "3":
+                ingredientDispenser.cleanUpCountCup();
+            case "4":
+                displayInfo.displayInfo();
+            default:
+                countIngredientsCoffeeMachine();
+        }
+    }
+
 }
 
