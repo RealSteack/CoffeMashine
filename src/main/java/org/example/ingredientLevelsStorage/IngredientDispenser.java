@@ -2,7 +2,6 @@ package org.example.ingredientLevelsStorage;
 
 
 import org.example.capacityLimits.CapacityLimits;
-import org.example.displays.DisplayInfo;
 
 import java.util.Scanner;
 
@@ -91,16 +90,18 @@ public class IngredientDispenser {
     public void cleanUpCountCup(){
         Scanner sc = new Scanner(System.in);
         IngredientLevelsStorage storage = new IngredientLevelsStorage();
-        if(countCup == 0){
+        if(CapacityLimits.getCountCup() == 0){
             System.out.println("Машина не нуждается в чистке!");
             storage.countIngredientsCoffeeMachine();
         }
-        System.out.println("Вы уверены, что хотите очистить кофе машину?" +
-                "\n1.Да" +
-                "\n2.Нет");
+        System.out.println("""
+                Вы хотите включить кофе-машину?
+                1.Да
+                2.Нет
+                """);
         switch(sc.nextLine()){
             case "1":
-                CapacityLimits.countCup = 0;
+                CapacityLimits.setCountCup(0);
                 System.out.println("Кофе-машина очищена!");
                 storage.countIngredientsCoffeeMachine();
             case "2":

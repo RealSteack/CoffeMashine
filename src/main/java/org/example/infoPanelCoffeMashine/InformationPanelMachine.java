@@ -1,11 +1,10 @@
 package org.example.infoPanelCoffeMashine;
 
+import org.example.capacityLimits.CapacityLimits;
 import org.example.coffeeRecipeType.CoffeeRecipeType;
 import org.example.displays.DisplayInfo;
 
 import java.util.Scanner;
-
-import static org.example.capacityLimits.CapacityLimits.*;
 
 public class InformationPanelMachine {
 
@@ -26,16 +25,18 @@ public class InformationPanelMachine {
         switch (sc.nextLine()){
             case "1":
                 System.out.println(CoffeeRecipeType.ESPRESSO.getRecipe());
-                System.out.printf(CoffeeRecipeType.ESPRESSO.getRecipe());
+                System.out.printf(CoffeeRecipeType.CAPPUCCINO.getRecipe());
                 informationPanel();
             case "2":
-                System.out.println("На данный момент в кофе-машине : " + countCup);
-            case "3":
-                System.out.println("Функция в разработке!");
+                System.out.println("На данный момент в кофе-машине : " + CapacityLimits.getCountCup());
+                informationPanel();
+//            case "3":
+//                System.out.println("Функция в разработке!");
             case "4":
                 System.out.println("====КОЛИЧЕСТВО КРУЖЕК КОТОРЫЕ БЫЛИ СДЕЛАНЫ====" +
-                        "\nСделано Капучино --> " + cappuccinoCount +
-                        "\nСделано Эспрессо --> " + espressoCount);
+                        "\nСделано Капучино --> " + CapacityLimits.getCappuccinoCount() +
+                        "\nСделано Эспрессо --> " + CapacityLimits.getEspressoCount());
+                informationPanel();
             case "5":
                 displayInfo.displayInfo();
             default:

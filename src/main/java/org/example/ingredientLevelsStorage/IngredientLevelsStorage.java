@@ -6,11 +6,11 @@ import java.util.Scanner;
 
 public class IngredientLevelsStorage {
 
-    public static int amountMilk = 10000;
+    public static int amountMilk = 5000;
 
-    public static int amountCoffee = 4000;
+    public static int amountCoffee = 5000;
 
-    public static int amountWater = 10000;
+    public static int amountWater = 5000;
 
     public static int getAmountMilk() {
         return amountMilk;
@@ -49,9 +49,9 @@ public class IngredientLevelsStorage {
         switch (sc.nextLine()){
             case "1":
                 System.out.println("Сейчас в кофе-машине:" +
-                        "\nВода --> " + amountWater +
-                        "\nМолоко --> " + amountMilk+
-                        "\nКофе --> " + amountCoffee);
+                        "\nВода --> " + getAmountWater() +
+                        "\nМолоко --> " + getAmountMilk()+
+                        "\nКофе --> " + getAmountCoffee());
                 countIngredientsCoffeeMachine();
             case "2":
                 ingredientDispenser.promptIngredientSelection();
