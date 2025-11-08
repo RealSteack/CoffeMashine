@@ -11,6 +11,8 @@ public class CapacityLimits {
     public static int countCup;
     public static int cappuccinoCount;
     public static int espressoCount;
+    public static int coupCountProfileEspresso;
+    public static int coupCountProfileCappuccino;
 
 
     public static void setCountCup(int countCup) {
@@ -27,5 +29,29 @@ public class CapacityLimits {
 
     public static int getEspressoCount() {
         return espressoCount;
+    }
+
+    public static void setCappuccinoCount(int cappuccinoCount) {
+        CapacityLimits.cappuccinoCount = cappuccinoCount;
+    }
+
+    public static void setEspressoCount(int espressoCount) {
+        CapacityLimits.espressoCount = espressoCount;
+    }
+
+    public static int getCoupCountProfileEspresso() {
+        return coupCountProfileEspresso;
+    }
+
+    public static void setCoupCountProfileEspresso(int coupCountProfileEspresso) {
+        CapacityLimits.coupCountProfileEspresso = coupCountProfileEspresso;
+    }
+
+    public static int getCoupCountProfileCappuccino() {
+        return coupCountProfileCappuccino;
+    }
+
+    public static void setCoupCountProfileCappuccino(int coupCountProfileCappuccino) {
+        CapacityLimits.coupCountProfileCappuccino = coupCountProfileCappuccino;
     }
 }

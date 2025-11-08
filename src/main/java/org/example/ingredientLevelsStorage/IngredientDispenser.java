@@ -12,6 +12,7 @@ public class IngredientDispenser {
     public void promptIngredientSelection(){
         IngredientLevelsStorage ingredientLevelsStorage = new IngredientLevelsStorage();
         Scanner scanner = new Scanner(System.in);
+
         System.out.print("""
                 Что вы хотите пополнить?
                 1.Кофе
@@ -36,6 +37,7 @@ public class IngredientDispenser {
                 promptIngredientSelection();
         }
     }
+
     public void addCoffeeMount() {
         Scanner sc = new Scanner(System.in);
         IngredientLevelsStorage storage = new IngredientLevelsStorage();
@@ -53,6 +55,7 @@ public class IngredientDispenser {
             IngredientLevelsStorage.amountCoffee = MAX_COUNT_COFFEE;
         }
     }
+
     public void addMilkMount(){
         Scanner sc = new Scanner(System.in);
         IngredientLevelsStorage storage = new IngredientLevelsStorage();
@@ -70,6 +73,7 @@ public class IngredientDispenser {
             IngredientLevelsStorage.amountMilk = MAX_COUNT_MILK;
         }
     }
+
     public void addWaterMount(){
         Scanner sc = new Scanner(System.in);
         IngredientLevelsStorage storage = new IngredientLevelsStorage();
@@ -87,6 +91,7 @@ public class IngredientDispenser {
             IngredientLevelsStorage.amountWater = MAX_COUNT_WATER;
         }
     }
+
     public void cleanUpCountCup(){
         Scanner sc = new Scanner(System.in);
         IngredientLevelsStorage storage = new IngredientLevelsStorage();

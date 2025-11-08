@@ -15,7 +15,7 @@ public class StartMenu {
         switch (sc.nextLine()) {
             case "1" -> display.displayInfo();
             case "2" -> System.out.println("До свидания!");
-            default  -> System.out.println("Ошибка!");
+            default  -> System.err.println("Ошибка!");
         }
     }
 }

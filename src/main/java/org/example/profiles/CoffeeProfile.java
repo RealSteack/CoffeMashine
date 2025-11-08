@@ -9,9 +9,6 @@ public class CoffeeProfile {
         this.coupCountCappuccino = coupCountCappuccino;
     }
 
-    public CoffeeProfile() {
-    }
-
     public int getCoupCountEspresso() {
         return coupCountEspresso;
     }
