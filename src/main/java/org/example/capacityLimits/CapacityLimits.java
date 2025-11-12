@@ -8,11 +8,11 @@ public class CapacityLimits {
     public final static byte COFFEE_RECIPE_COFFEE_BASED = 25;
     public final static byte COFFEE_RECIPE_MILK_BASED = 35;
     public final static int MAX_COUNT_CUP = 10;
-    public static int countCup;
-    public static int cappuccinoCount;
-    public static int espressoCount;
-    public static int coupCountProfileEspresso;
-    public static int coupCountProfileCappuccino;
+    private static int countCup;
+    private static int cappuccinoCount;
+    private static int espressoCount;
+    private static int coupCountProfileEspresso;
+    private static int coupCountProfileCappuccino;
 
 
     public static void setCountCup(int countCup) {

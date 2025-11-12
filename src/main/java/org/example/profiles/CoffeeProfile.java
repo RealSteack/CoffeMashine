@@ -1,8 +1,8 @@
 package org.example.profiles;
 
 public class CoffeeProfile {
-    public int coupCountEspresso;
-    public int coupCountCappuccino;
+    private int coupCountEspresso;
+    private int coupCountCappuccino;
 
     public CoffeeProfile(int coupCountEspresso, int coupCountCappuccino) {
         this.coupCountEspresso = coupCountEspresso;

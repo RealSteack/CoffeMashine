@@ -124,8 +124,8 @@ public class BeverageBrewer {
             IngredientLevelsStorage.setAmountWater(IngredientLevelsStorage.getAmountWater() - CapacityLimits.COFFEE_RECIPE_WATER_BASED);
             IngredientLevelsStorage.setAmountCoffee(IngredientLevelsStorage.getAmountCoffee() - CapacityLimits.COFFEE_RECIPE_WATER_BASED);
             IngredientLevelsStorage.setAmountMilk(IngredientLevelsStorage.getAmountMilk() - CapacityLimits.COFFEE_RECIPE_MILK_BASED);
-            countCup++;
-            cappuccinoCount++;
+            CapacityLimits.setCountCup(CapacityLimits.getCountCup()+ 1);
+            CapacityLimits.setCappuccinoCount(CapacityLimits.getCappuccinoCount() + 1);
         }
     }
 
@@ -134,8 +134,8 @@ public class BeverageBrewer {
             validateIngredientLevelsStorageEspresso();
             IngredientLevelsStorage.setAmountWater(IngredientLevelsStorage.getAmountWater() - CapacityLimits.COFFEE_RECIPE_WATER_BASED);
             IngredientLevelsStorage.setAmountCoffee(IngredientLevelsStorage.getAmountCoffee() - CapacityLimits.COFFEE_RECIPE_WATER_BASED);
-            countCup++;
-            espressoCount++;
+            CapacityLimits.setCountCup(CapacityLimits.getCountCup() + 1);
+            CapacityLimits.setEspressoCount(CapacityLimits.getCappuccinoCount() + 1);
         }
     }
 
@@ -155,19 +155,23 @@ public class BeverageBrewer {
 
     public void prepareDrinkToProfile(){
         Scanner sc = new Scanner(System.in);
-
         System.out.println("Введите имя профиля: ");
         String name = sc.nextLine();
         CoffeeProfile profile = users.get(name);
-        CapacityLimits.setCoupCountProfileEspresso(profile.getCoupCountEspresso());
-        CapacityLimits.setCoupCountProfileCappuccino(profile.getCoupCountCappuccino());
-        espressoDrinkToProfile();
-        cappuccinoDrinkToProfile();
-        System.out.println("По профилю : " + name +
-                "\nКружек   -> " + CapacityLimits.getCountCup()+
-                "\nЭспрессо -> " + CapacityLimits.getCoupCountProfileCappuccino()+
-                "\nКапучино -> " + CapacityLimits.getCoupCountProfileEspresso());
-        promptDrinkMenu();
+        if (users.containsKey(name)) {
+            CapacityLimits.setCoupCountProfileEspresso(profile.getCoupCountEspresso());
+            CapacityLimits.setCoupCountProfileCappuccino(profile.getCoupCountCappuccino());
+            espressoDrinkToProfile();
+            cappuccinoDrinkToProfile();
+            System.out.println("По профилю : " + name +
+                    "\nКружек   -> " + CapacityLimits.getCountCup()+
+                    "\nЭспрессо -> " + CapacityLimits.getCoupCountProfileCappuccino()+
+                    "\nКапучино -> " + CapacityLimits.getCoupCountProfileEspresso());
+            promptDrinkMenu();
+        } else {
+            System.out.println("Такого пользователя не существует!");
+            promptDrinkMenu();
+        }
     }
 
     public void espressoDrinkToProfile(){
@@ -176,8 +180,8 @@ public class BeverageBrewer {
             validateIngredientLevelsStorageEspresso();
             IngredientLevelsStorage.setAmountWater(IngredientLevelsStorage.getAmountWater() - CapacityLimits.COFFEE_RECIPE_WATER_BASED);
             IngredientLevelsStorage.setAmountCoffee(IngredientLevelsStorage.getAmountCoffee() - CapacityLimits.COFFEE_RECIPE_WATER_BASED);
-            countCup++;
-            espressoCount++;
+            CapacityLimits.setCountCup(CapacityLimits.getCountCup() + 1);
+            CapacityLimits.setEspressoCount(CapacityLimits.getEspressoCount() + 1);
         }
     }
 
@@ -188,8 +192,8 @@ public class BeverageBrewer {
             IngredientLevelsStorage.setAmountWater(IngredientLevelsStorage.getAmountWater() - CapacityLimits.COFFEE_RECIPE_WATER_BASED);
             IngredientLevelsStorage.setAmountCoffee(IngredientLevelsStorage.getAmountCoffee() - CapacityLimits.COFFEE_RECIPE_WATER_BASED);
             IngredientLevelsStorage.setAmountMilk(IngredientLevelsStorage.getAmountMilk() - CapacityLimits.COFFEE_RECIPE_MILK_BASED);
-            countCup++;
-            cappuccinoCount++;
+            CapacityLimits.setCountCup(CapacityLimits.getCountCup() + 1);
+            CapacityLimits.setCappuccinoCount(CapacityLimits.getCappuccinoCount() + 1);
         }
     }
 }

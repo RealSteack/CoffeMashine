@@ -100,7 +100,7 @@ public class IngredientDispenser {
             storage.countIngredientsCoffeeMachine();
         }
         System.out.println("""
-                Вы хотите включить кофе-машину?
+                Вы хотите очистить кофе-машину?
                 1.Да
                 2.Нет
                 """);

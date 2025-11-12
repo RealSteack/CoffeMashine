@@ -12,7 +12,7 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 
 public class ProfileManager {
-    public static final HashMap<String, CoffeeProfile> users  = new HashMap<>();
+    public static final Map<String, CoffeeProfile> users  = new HashMap<>();
 
     public void infoProfile(){
         DisplayInfo displayInfo = new DisplayInfo();
@@ -39,8 +39,7 @@ public class ProfileManager {
 
             System.out.println("Введите ваше имя: ");
             String name = sc.nextLine();
-            // Проверку спиздил у GPT, потому не ебу как тут проверить ввёл пользователь блять число или символ
-            // Но суть не много понял
+
             if (name.matches("[a-zA-Zа-яА-ЯёЁ\\s]+")) {
                 System.out.println("Введите сколько кружек капучино: ");
                 try {
@@ -67,7 +66,7 @@ public class ProfileManager {
                     users.put(name, new CoffeeProfile(cappuccino, espresso));
                     infoProfile();
 
-                } catch (NegativeNumberException e) {
+                } catch (NegativeNumberException e ) {
                     System.err.println("Введите число больше 0");
                     infoProfile();
 
@@ -75,10 +74,6 @@ public class ProfileManager {
                     System.err.print("Введите число, а не букву!");
                     infoProfile();
 
-
-                }catch (Exception e){
-                    System.err.println("Ошибка ввода: пожалуйста, введите целое число");
-                    infoProfile();
 
                 }
             } else {
@@ -89,7 +84,7 @@ public class ProfileManager {
     }
 
     public void informationProfile() {
-        checkProfileNull();
+        checkProfileIsEmpty();
             System.out.println("=== ВСЕ ПОЛЬЗОВАТЕЛИ ===");
             for (Map.Entry<String, CoffeeProfile> entry : users.entrySet()) {
                 String name = entry.getKey();
@@ -111,7 +106,7 @@ public class ProfileManager {
         switch(sc.nextLine()){
             case "1":
                 System.out.println("Введите имя пользователя: ");
-                checkProfileNull();
+                checkProfileIsEmpty();
                 users.remove(sc.nextLine());
                 infoProfile();
             case "2":
@@ -123,7 +118,7 @@ public class ProfileManager {
         }
     }
 
-    public void checkProfileNull(){
+    public void checkProfileIsEmpty(){
         if (users.isEmpty()) {
             System.out.println("=== СПИСОК ПОЛЬЗОВАТЕЛЕЙ ПУСТ ===");
             System.out.println("Нет добавленных пользователей.\n");
