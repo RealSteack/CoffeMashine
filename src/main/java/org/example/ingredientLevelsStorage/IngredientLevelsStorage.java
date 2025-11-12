@@ -6,11 +6,11 @@ import java.util.Scanner;
 
 public class IngredientLevelsStorage {
 
-    public static int amountMilk = 5000;
+    public static int amountMilk;
 
-    public static int amountCoffee = 5000;
+    public static int amountCoffee;
 
-    public static int amountWater = 5000;
+    public static int amountWater;
 
     public static int getAmountMilk() {
         return amountMilk;

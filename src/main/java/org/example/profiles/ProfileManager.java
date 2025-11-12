@@ -73,8 +73,6 @@ public class ProfileManager {
                 }catch (InputMismatchException e){
                     System.err.print("Введите число, а не букву!");
                     infoProfile();
-
-
                 }
             } else {
                 System.out.println("Ошибка: имя должно содержать только буквы!");
